@@ -73,9 +73,9 @@ VaR positive = montant de perte
 
 Les rendements utilisés sont les log-rendements :
 
-```math
+$$
 r_t = \ln\left(\frac{P_t}{P_{t-1}}\right)
-```
+$$
 
 Ce choix est standard pour un projet de modélisation financière car les log-rendements sont additifs dans le temps et se prêtent bien aux approximations gaussiennes de court terme.
 
@@ -83,15 +83,15 @@ Ce choix est standard pour un projet de modélisation financière car les log-re
 
 Pour un vecteur de poids \(w\) et un vecteur de rendements \(r_t\), le rendement agrégé du portefeuille est :
 
-```math
+$$
 r_{p,t} = w^\top r_t
-```
+$$
 
 Le P&L absolu est ensuite obtenu par :
 
-```math
-\text{P&L}_t = V_0 \times r_{p,t}
-```
+$$
+\operatorname{PnL}_t = V_0 \times r_{p,t}
+$$
 
 où \(V_0\) est la valeur initiale du portefeuille.
 
@@ -101,9 +101,9 @@ La VaR au niveau de confiance \(\alpha\) correspond au quantile de perte dépass
 
 Dans le code, la VaR est calculée à partir de la distribution des P&L :
 
-```math
-\text{VaR}_{\alpha} = -Q_{1-\alpha}(\text{P&L})
-```
+$$
+\operatorname{VaR}_{\alpha} = -Q_{1-\alpha}(\operatorname{PnL})
+$$
 
 Par exemple, une VaR 99% de 13 162 EUR signifie que, selon le modèle, la perte journalière ne devrait dépasser ce montant que dans environ 1% des cas.
 
@@ -111,10 +111,10 @@ Par exemple, une VaR 99% de 13 162 EUR signifie que, selon le modèle, la perte 
 
 L'Expected Shortfall mesure la perte moyenne conditionnelle au dépassement de la VaR :
 
-```math
-\text{ES}_{\alpha} =
--\mathbb{E}\left[\text{P&L} \mid \text{P&L} \leq Q_{1-\alpha}(\text{P&L})\right]
-```
+$$
+\operatorname{ES}_{\alpha} =
+-\mathbb{E}\left[\operatorname{PnL} \mid \operatorname{PnL} \leq Q_{1-\alpha}(\operatorname{PnL})\right]
+$$
 
 Cette mesure complète la VaR car elle renseigne sur la sévérité des pertes extrêmes, pas seulement sur leur seuil.
 
@@ -128,10 +128,10 @@ La méthode historique utilise directement la distribution empirique des P&L pas
 
 La méthode paramétrique suppose que le rendement du portefeuille suit une loi normale. Elle fournit une formule analytique simple :
 
-```math
-\text{VaR}_{\alpha}
+$$
+\operatorname{VaR}_{\alpha}
 = -V_0 \left(\mu_h + \sigma_h z_{1-\alpha}\right)
-```
+$$
 
 où :
 
@@ -145,9 +145,9 @@ La méthode Monte Carlo simule un grand nombre de scénarios de rendements corr�
 
 Dans le cas gaussien :
 
-```math
+$$
 R = \mu_h + Z L^\top
-```
+$$
 
 avec :
 
@@ -395,4 +395,3 @@ Les prolongements les plus intéressants seraient :
 ## En une phrase
 
 Ce dépôt montre comment construire un moteur Python clair, testable et reproductible pour mesurer la VaR et l'Expected Shortfall d'un portefeuille multi-actifs, avec une attention particulière portée à la pédagogie, à l'interprétation des résultats et à la qualité de présentation GitHub.
-
