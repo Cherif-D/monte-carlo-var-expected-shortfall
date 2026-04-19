@@ -81,7 +81,7 @@ Ce choix est standard pour un projet de modélisation financière car les log-re
 
 ### Rendement de portefeuille
 
-Pour un vecteur de poids \(w\) et un vecteur de rendements \(r_t\), le rendement agrégé du portefeuille est :
+Pour un vecteur de poids $w$ et un vecteur de rendements $r_t$, le rendement agrégé du portefeuille est :
 
 $$
 r_{p,t} = w^\top r_t
@@ -93,11 +93,11 @@ $$
 \operatorname{PnL}_t = V_0 \times r_{p,t}
 $$
 
-où \(V_0\) est la valeur initiale du portefeuille.
+où $V_0$ est la valeur initiale du portefeuille.
 
 ### Value-at-Risk
 
-La VaR au niveau de confiance \(\alpha\) correspond au quantile de perte dépassé avec probabilité \(1-\alpha\).
+La VaR au niveau de confiance $\alpha$ correspond au quantile de perte dépassé avec probabilité $1-\alpha$.
 
 Dans le code, la VaR est calculée à partir de la distribution des P&L :
 
@@ -135,9 +135,9 @@ $$
 
 où :
 
-- \(\mu_h\) est le rendement moyen à l'horizon \(h\) ;
-- \(\sigma_h\) est la volatilité à l'horizon \(h\) ;
-- \(z_{1-\alpha}\) est le quantile de la loi normale standard.
+- $\mu_h$ est le rendement moyen à l'horizon $h$ ;
+- $\sigma_h$ est la volatilité à l'horizon $h$ ;
+- $z_{1-\alpha}$ est le quantile de la loi normale standard.
 
 ### Méthode Monte Carlo
 
@@ -151,9 +151,9 @@ $$
 
 avec :
 
-- \(Z\) matrice d'innovations normales indépendantes ;
-- \(L\) matrice de Cholesky de la covariance ;
-- \(R\) matrice des rendements simulés.
+- $Z$ matrice d'innovations normales indépendantes ;
+- $L$ matrice de Cholesky de la covariance ;
+- $R$ matrice des rendements simulés.
 
 Le projet permet aussi d'utiliser une Student-t multivariée afin d'illustrer l'effet de queues plus épaisses.
 
