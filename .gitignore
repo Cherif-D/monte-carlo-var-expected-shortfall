@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# Environnements virtuels
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+.claude/
+.codex
+*.swp
+*.swo
+*~
+
+# Tests / qualité
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Données brutes (potentiellement volumineuses)
+data/raw/*.csv
+data/processed/*.csv
+
+# Sorties générées automatiquement
+outputs/figures/*.png
+outputs/figures/*.pdf
+outputs/tables/*.csv
+outputs/reports/*.md
+outputs/logs/*.log
+
+# Garder la structure des dossiers
+!outputs/figures/.gitkeep
+!outputs/tables/.gitkeep
+!outputs/reports/.gitkeep
+!outputs/logs/.gitkeep
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Jupyter (non utilisé ici mais au cas où)
+.ipynb_checkpoints/
+*.ipynb

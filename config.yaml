@@ -1,0 +1,90 @@
+# =============================================================================
+# config.yaml — Configuration centrale du projet VaR/ES Monte Carlo
+# =============================================================================
+# Ce fichier centralise tous les paramètres du projet.
+# Modifier ce fichier permet de relancer l'intégralité du pipeline
+# sans toucher au code source.
+# =============================================================================
+
+# --- Données ---
+data:
+  mode: "example"           # "example" (CSV local) ou "live" (téléchargement yfinance)
+  example_file: "data/examples/example_prices.csv"
+  start_date: "2020-01-02"
+  end_date:   "2023-12-29"
+  frequency:  "daily"       # daily uniquement pour l'instant
+
+# --- Portefeuille ---
+portfolio:
+  name: "Portefeuille Multi-Actifs M1"
+  currency: "EUR"
+  valeur_initiale: 1_000_000   # en EUR
+  actifs:
+    SPY:   0.30   # ETF actions US (S&P 500)
+    EFA:   0.20   # ETF actions internationales (hors US)
+    AGG:   0.25   # ETF obligations US investment grade
+    GLD:   0.15   # ETF or (couverture)
+    EURUSD: 0.10  # Paire EUR/USD (exposition FX)
+  # La somme des poids doit être égale à 1.0
+  # Une vérification automatique est effectuée au démarrage
+
+# --- Simulation Monte Carlo ---
+simulation:
+  n_simulations: 50000      # Nombre de scénarios simulés
+  seed: 42                  # Graine aléatoire pour reproductibilité
+  horizon_jours: 1          # Horizon de la VaR (en jours ouvrés)
+  distribution: "normal"    # "normal" ou "student"
+  student_df: 5             # Degrés de liberté si distribution="student"
+
+# --- Mesures de risque ---
+risk:
+  niveaux_confiance:
+    - 0.95
+    - 0.99
+  methodes:
+    - "historique"
+    - "parametrique"
+    - "monte_carlo"
+
+# --- Analyses de sensibilité ---
+sensitivity:
+  chocs_volatilite:         # Multiplicateurs appliqués aux volatilités
+    - 0.5
+    - 0.75
+    - 1.0
+    - 1.25
+    - 1.5
+    - 2.0
+  chocs_correlation:        # Facteurs multiplicatifs des corrélations hors-diagonale
+    - 0.0                   # corrélations nulles (actifs indépendants)
+    - 0.5
+    - 1.0                   # corrélations historiques (baseline)
+    - 1.5                   # augmentation des corrélations (stress)
+  horizons_jours:           # Horizons analysés
+    - 1
+    - 5
+    - 10
+    - 21
+  niveaux_confiance_range:  # Niveaux de confiance analysés
+    - 0.90
+    - 0.95
+    - 0.975
+    - 0.99
+    - 0.999
+
+# --- Sorties ---
+outputs:
+  dossier_figures: "outputs/figures"
+  dossier_tables:  "outputs/tables"
+  dossier_reports: "outputs/reports"
+  dossier_logs:    "outputs/logs"
+  format_figures:  "png"    # "png" ou "pdf"
+  dpi: 150
+  sauvegarder_csv: true     # Exporter les résultats en CSV
+  generer_rapport: true     # Générer le rapport Markdown final
+
+# --- Logging ---
+logging:
+  niveau: "INFO"            # DEBUG, INFO, WARNING, ERROR
+  fichier_log: "outputs/logs/run.log"
+  afficher_console: true
