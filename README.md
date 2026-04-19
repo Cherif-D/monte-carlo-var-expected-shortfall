@@ -60,14 +60,14 @@ Avec une configuration alternative:
 python run_all.py --config config.yaml
 ```
 
-Les sorties generees sont placees dans:
+Les sorties sont creees automatiquement dans `outputs/` quand le pipeline est lance:
 
 - `outputs/figures/` pour les graphiques.
 - `outputs/tables/` pour les tableaux CSV.
 - `outputs/reports/final_report.md` pour le rapport.
 - `outputs/logs/run.log` pour les logs.
 
-Ces fichiers sont ignores par Git car ils sont regenerables.
+Le dossier `outputs/` est ignore par Git car son contenu est regenerable.
 
 ## Resultats de reference
 
@@ -90,8 +90,6 @@ Les chiffres peuvent legerement varier si la configuration, les donnees ou la ve
 ├── requirements-dev.txt
 ├── data/
 │   └── examples/
-├── docs/
-├── outputs/
 ├── src/
 │   ├── data_loader.py
 │   ├── portfolio.py
@@ -126,4 +124,3 @@ Le pipeline complet `python run_all.py` s'execute egalement avec succes et regen
 ## Licence
 
 Aucune licence open source n'est fournie pour l'instant. Ajouter une licence explicite avant de reutiliser ou redistribuer le projet dans un contexte public large.
-

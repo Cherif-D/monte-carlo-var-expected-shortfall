@@ -45,17 +45,9 @@ data/raw/*.csv
 data/processed/*.csv
 
 # Sorties générées automatiquement
-outputs/figures/*.png
-outputs/figures/*.pdf
-outputs/tables/*.csv
-outputs/reports/*.md
-outputs/logs/*.log
+outputs/
 
 # Garder la structure des dossiers
-!outputs/figures/.gitkeep
-!outputs/tables/.gitkeep
-!outputs/reports/.gitkeep
-!outputs/logs/.gitkeep
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
