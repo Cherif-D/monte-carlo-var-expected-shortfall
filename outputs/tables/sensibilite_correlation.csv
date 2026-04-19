@@ -1,0 +1,9 @@
+Facteur corrélation,Label corrélation,Niveau confiance,VaR MC (EUR),ES MC (EUR),VaR MC (%)
+0.0,Indépendants (0),95%,7328.0,9149.0,0.733
+0.0,Indépendants (0),99%,10378.0,11656.0,1.038
+0.5,0.5x historique,95%,8413.0,10507.0,0.841
+0.5,0.5x historique,99%,11903.0,13387.0,1.19
+1.0,1.0x historique,95%,9372.0,11712.0,0.937
+1.0,1.0x historique,99%,13162.0,14993.0,1.316
+1.5,1.5x historique,95%,9774.0,12258.0,0.977
+1.5,1.5x historique,99%,13839.0,15781.0,1.384

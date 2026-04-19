@@ -1,0 +1,5 @@
+Portefeuille,Niveau confiance,VaR MC (EUR),ES MC (EUR),VaR MC (%)
+Utilisateur,95%,9372.0,11712.0,0.937
+Utilisateur,99%,13162.0,14993.0,1.316
+Équipondéré,95%,8227.0,10246.0,0.823
+Équipondéré,99%,11591.0,13057.0,1.159

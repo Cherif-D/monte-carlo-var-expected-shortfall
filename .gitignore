@@ -45,9 +45,10 @@ data/raw/*.csv
 data/processed/*.csv
 
 # Sorties générées automatiquement
-outputs/
+outputs/logs/*.log
 
 # Garder la structure des dossiers
+!outputs/logs/.gitkeep
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
