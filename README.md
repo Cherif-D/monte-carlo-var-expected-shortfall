@@ -90,7 +90,7 @@ $$
 Le P&L absolu est ensuite obtenu par :
 
 $$
-\operatorname{PnL}_t = V_0 \times r_{p,t}
+\mathrm{PnL}_t = V_0 \times r_{p,t}
 $$
 
 où $V_0$ est la valeur initiale du portefeuille.
@@ -102,7 +102,7 @@ La VaR au niveau de confiance $\alpha$ correspond au quantile de perte dépassé
 Dans le code, la VaR est calculée à partir de la distribution des P&L :
 
 $$
-\operatorname{VaR}_{\alpha} = -Q_{1-\alpha}(\operatorname{PnL})
+\mathrm{VaR}_{\alpha} = -Q_{1-\alpha}(\mathrm{PnL})
 $$
 
 Par exemple, une VaR 99% de 13 162 EUR signifie que, selon le modèle, la perte journalière ne devrait dépasser ce montant que dans environ 1% des cas.
@@ -112,8 +112,8 @@ Par exemple, une VaR 99% de 13 162 EUR signifie que, selon le modèle, la perte 
 L'Expected Shortfall mesure la perte moyenne conditionnelle au dépassement de la VaR :
 
 $$
-\operatorname{ES}_{\alpha} =
--\mathbb{E}\left[\operatorname{PnL} \mid \operatorname{PnL} \leq Q_{1-\alpha}(\operatorname{PnL})\right]
+\mathrm{ES}_{\alpha} =
+-\mathbb{E}\left[\mathrm{PnL} \mid \mathrm{PnL} \leq Q_{1-\alpha}(\mathrm{PnL})\right]
 $$
 
 Cette mesure complète la VaR car elle renseigne sur la sévérité des pertes extrêmes, pas seulement sur leur seuil.
@@ -129,7 +129,7 @@ La méthode historique utilise directement la distribution empirique des P&L pas
 La méthode paramétrique suppose que le rendement du portefeuille suit une loi normale. Elle fournit une formule analytique simple :
 
 $$
-\operatorname{VaR}_{\alpha}
+\mathrm{VaR}_{\alpha}
 = -V_0 \left(\mu_h + \sigma_h z_{1-\alpha}\right)
 $$
 
